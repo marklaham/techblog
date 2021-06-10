@@ -2,13 +2,13 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = 1.3;
+ const comments = '';
   const description = document.querySelector('#project-desc').value.trim();
 
   if (name && description) {
     const response = await fetch(`/api/projects`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ name, comments, description }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -42,6 +42,6 @@ document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('.project-list')
+//   .addEventListener('click', delButtonHandler);
